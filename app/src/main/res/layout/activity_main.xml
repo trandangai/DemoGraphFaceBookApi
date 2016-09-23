@@ -38,6 +38,16 @@
         android:text="Your Time line"
         android:layout_marginTop="30dp"
         android:layout_below="@+id/btnFriendList"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:id="@+id/btnTimeLine" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Post Status"
+        android:id="@+id/btnPostStatus"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/btnTimeLine" />
 
 </RelativeLayout>

@@ -7,13 +7,24 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.khtn.demographfacebookapi.TimelineAcitivity">
+    tools:context="com.khtn.demographfacebookapi.PostStatusActivity">
 
-    <ListView
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/txtStatus"
+        android:layout_marginTop="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lvPosts"
-        android:layout_alignParentTop="true"
+        android:text="Post New Status"
+        android:id="@+id/btnConfirmPost"
+        android:layout_below="@+id/txtStatus"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="0dp" />
+        android:layout_marginTop="40dp" />
 </RelativeLayout>

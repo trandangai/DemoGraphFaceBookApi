@@ -30,10 +30,9 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    LoginButton loginButton;
     TextView txtName;
     CallbackManager callbackManager;
-    Button btnFriendUI;
+    Button btnFriendUI,btntimeLineButton,btnPostStatus;
     LoginButton btnLogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +52,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = (LoginButton) findViewById(R.id.login_button);
 
 
-        btnLogin.setReadPermissions("user_friends");
-        btnLogin.setReadPermissions("user_posts");
+        btnLogin.setPublishPermissions("publish_actions");
 
 
         // Biến nhận biết sự thay đổi của AcccessToken
@@ -70,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
         };
 
         btnFriendUI = (Button) findViewById(R.id.btnFriendList);
+        btntimeLineButton = (Button) findViewById(R.id.btnTimeLine);
+        btnPostStatus = (Button) findViewById(R.id.btnPostStatus);
         addEvents();
     }
 
@@ -102,10 +102,32 @@ public class MainActivity extends AppCompatActivity {
 
     public void addEvents()
     {
+
+        if(AccessToken.getCurrentAccessToken()!=null)
+        {
+            sayHello(AccessToken.getCurrentAccessToken());
+        }
+
         btnFriendUI.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,FriendsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btntimeLineButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,TimelineAcitivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnPostStatus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,PostStatusActivity.class);
                 startActivity(intent);
             }
         });

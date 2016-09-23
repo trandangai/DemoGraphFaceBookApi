@@ -28,7 +28,8 @@
             android:value="@string/facebook_app_id" />
 
         <activity android:name=".FriendsActivity" />
-        <activity android:name=".TimelineAcitivity"></activity>
+        <activity android:name=".TimelineAcitivity" />
+        <activity android:name=".PostStatusActivity"></activity>
     </application>
 
 </manifest>
