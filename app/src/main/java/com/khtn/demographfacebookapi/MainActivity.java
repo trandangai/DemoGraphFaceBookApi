@@ -25,9 +25,6 @@ import com.facebook.login.widget.LoginButton;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.sql.Array;
-import java.util.ArrayList;
-
 public class MainActivity extends AppCompatActivity {
 
     TextView txtName;
@@ -52,8 +49,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = (LoginButton) findViewById(R.id.login_button);
 
 
-        btnLogin.setPublishPermissions("publish_actions");
-
+        btnLogin.setReadPermissions("user_friends","user_posts");
 
         // Biến nhận biết sự thay đổi của AcccessToken
         AccessTokenTracker accessTokenTracker = new AccessTokenTracker() {
@@ -80,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void sayHello(AccessToken accessToken) {
+
         GraphRequest request = GraphRequest.newMeRequest(accessToken,
                 new GraphRequest.GraphJSONObjectCallback() {
                     @Override

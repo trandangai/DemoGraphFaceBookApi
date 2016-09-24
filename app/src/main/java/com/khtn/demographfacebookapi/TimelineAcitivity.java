@@ -62,6 +62,7 @@ public class TimelineAcitivity extends AppCompatActivity {
     }
 
     private void postComment(int position) {
+
         Bundle params = new Bundle();
         params.putString("message", "This is a test comment");
                 /* make the API call */
