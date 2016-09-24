@@ -3,6 +3,7 @@ package com.khtn.demographfacebookapi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
@@ -16,6 +17,7 @@ import org.json.JSONObject;
 
 public class FriendsActivity extends AppCompatActivity {
 
+    EditText friendsText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +26,7 @@ public class FriendsActivity extends AppCompatActivity {
 
         AccessToken accessToken = AccessToken.getCurrentAccessToken();
 
-
+        friendsText = (EditText) findViewById(R.id.editFriendsText);
 
         if(accessToken!=null)
         {
@@ -34,9 +36,9 @@ public class FriendsActivity extends AppCompatActivity {
                         @Override
                         public void onCompleted(JSONObject object, GraphResponse response) {
                             try {
-                                Log.d("ABC",object.getJSONObject("friends").toString());
+                               friendsText.setText(object.getJSONObject("friends").toString());
                             } catch (JSONException e) {
-                                Log.d("Lỗi",e.toString());
+                                Toast.makeText(FriendsActivity.this,e.toString(),Toast.LENGTH_LONG).show();
                             }
                         }
                     });
